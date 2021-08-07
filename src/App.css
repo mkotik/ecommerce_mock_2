@@ -4,8 +4,23 @@
   height: 100vh;
 }
 
+.card-wrap {
+  width: 50%;
+}
+
+.products-padding {
+  /* background-color: inherit; */
+  height: 50px;
+}
+
 @media only screen and (max-width: 768px) {
   .showcase-section {
     height: 50vh;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .card-wrap {
+    width: 100%;
   }
 }

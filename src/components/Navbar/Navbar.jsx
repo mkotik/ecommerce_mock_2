@@ -3,9 +3,11 @@ import { CartCheck as Cart } from "react-bootstrap-icons";
 
 function Navbar(props) {
   return (
-    <nav className="navbar bg-dark navbar-dark navbar-expand-sm">
+    <nav className="navbar bg-dark navbar-dark navbar-expand-sm fixed-top">
       <div className="container">
-        <a className="navbar-brand">Redwood Guitars</a>
+        <a href="#" className="navbar-brand">
+          Redwood Guitars
+        </a>
 
         <button
           className="navbar-toggler"
