@@ -1,0 +1,11 @@
+.showcase-section {
+  background-image: url("./assets/showcase-img.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .showcase-section {
+    height: 50vh;
+  }
+}
