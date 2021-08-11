@@ -3,8 +3,7 @@ import ProductCard from "./ProductCard";
 import "../../App.css";
 
 function Products(props) {
-  const { products } = props;
-  console.log(products);
+  const { products, addToCart } = props;
   return (
     <div>
       <div className="products-padding" id="products"></div>
@@ -19,6 +18,7 @@ function Products(props) {
                 price={product.price.formatted_with_symbol}
                 features={product.description}
                 images={product.assets.map((cur) => cur.url)}
+                addToCart={addToCart}
               />
             ))}
           </div>

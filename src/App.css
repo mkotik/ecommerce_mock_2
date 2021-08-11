@@ -13,14 +13,58 @@
   height: 50px;
 }
 
-@media only screen and (max-width: 768px) {
-  .showcase-section {
-    height: 50vh;
-  }
+.badge-container-lg {
+  margin: 0px;
+  padding: 0px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  width: 13px;
+  border-radius: 50%;
+  font-size: 9px;
+  transform: translate(-10px, -7px);
+}
 
-  .container {
-    max-width: 1000px;
+.badge-container-sm {
+  margin: 0px;
+  padding: 0px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  width: 13px;
+  border-radius: 50%;
+  font-size: 9px;
+  margin-right: 0px;
+  transform: translate(22px, -32px);
+}
+
+.badge-number {
+  margin: 0px;
+  padding: 0px;
+  color: white;
+}
+
+.cart-nav-item {
+  /* background-color: blue; */
+  display: flex;
+  align-items: center;
+}
+
+.navbar-toggler {
+  height: 40px;
+}
+
+@media only screen and (max-width: 575px) {
+  .badge-container-lg {
+    transform: translate(-2px, -8px);
   }
+}
+
+@media only screen and (max-width: 768px) {
 }
 
 @media only screen and (max-width: 850px) {

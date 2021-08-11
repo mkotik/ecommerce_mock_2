@@ -7,21 +7,35 @@ import "./App.css";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState(null);
 
+  // Getting products from API
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
     setProducts(data);
   };
 
+  const createCart = async () => {
+    const data = await commerce.cart.retrieve();
+    setCart(data);
+  };
+
+  const addToCart = async (productId, quantity = 1) => {
+    const item = await commerce.cart.add(productId, quantity);
+    setCart(item.cart);
+    console.log(cart);
+  };
+
   useEffect(() => {
     fetchProducts();
+    createCart();
   }, []);
 
   return (
     <div>
       <Navbar />
       <Showcase />
-      <Products products={products} />
+      <Products products={products} addToCart={addToCart} />
     </div>
   );
 }

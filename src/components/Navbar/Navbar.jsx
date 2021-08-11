@@ -1,6 +1,22 @@
 import React from "react";
 import { CartCheck as Cart } from "react-bootstrap-icons";
 
+function BadgeLg(props) {
+  return (
+    <div className="badge-container-lg">
+      <p className="badge-number">4</p>
+    </div>
+  );
+}
+
+function BadgeSm(props) {
+  return (
+    <div className="badge-container-sm">
+      <p className="badge-number">4</p>
+    </div>
+  );
+}
+
 function Navbar(props) {
   return (
     <nav className="navbar bg-dark navbar-dark navbar-expand-sm fixed-top">
@@ -10,11 +26,12 @@ function Navbar(props) {
         </a>
 
         <button
-          className="navbar-toggler"
+          className="navbar-toggler border-0 "
           data-bs-toggle="collapse"
           data-bs-target="#navbar-menu"
         >
           <span className="navbar-toggler-icon"></span>
+          <BadgeSm />
         </button>
 
         <div className="collapse navbar-collapse" id="navbar-menu">
@@ -25,11 +42,12 @@ function Navbar(props) {
             <li className="nav-item">
               <a className="nav-link">About Us</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link">
+            <li className="nav-item cart-nav-item">
+              <a className="nav-link d-flex align-items-center">
                 Checkout
-                <Cart color="#198754" className="ms-1 mb-1" />
+                <Cart color="#198754" className="ms-1 mb-0 " />
               </a>
+              <BadgeLg />
             </li>
           </ul>
         </div>

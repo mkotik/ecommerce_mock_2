@@ -50,7 +50,7 @@ const Carousel = (props) => {
 
 function ProductCard(props) {
   const [expanded, setExpanded] = useState(false);
-  const { cardId, name, price, features, images } = props;
+  const { cardId, name, price, features, images, addToCart } = props;
 
   return (
     <div className="p-2 card-wrap">
@@ -90,6 +90,7 @@ function ProductCard(props) {
             <button
               className="btn btn-success mt-2"
               style={{ bottom: "0px", right: "0px" }}
+              onClick={() => addToCart(cardId)}
             >
               Add to Cart
             </button>
