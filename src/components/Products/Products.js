@@ -1,5 +1,6 @@
 import React from "react";
 import ProductCard from "./ProductCard";
+import "../../App.css";
 
 function Products(props) {
   const { products } = props;
@@ -7,8 +8,8 @@ function Products(props) {
   return (
     <div>
       <div className="products-padding" id="products"></div>
-      <section className="p-5  products">
-        <div className="container">
+      <section className="py-5  products">
+        <div className="container bagg">
           <div className="d-flex flex-wrap">
             {products.map((product) => (
               <ProductCard

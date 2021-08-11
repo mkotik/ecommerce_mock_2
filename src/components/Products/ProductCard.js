@@ -66,7 +66,7 @@ function ProductCard(props) {
             otherImages={images.slice(1, images.length)}
           />
         </div>
-        <div className="card-body bg-light ">
+        <div className="card-body bg-light w-100 ">
           <div className="card-title d-flex align-items-center justify-content-between">
             <h4 className="card-title m-0">{name}</h4>
             <p className="lead m-0">{price}</p>
