@@ -14,8 +14,8 @@ function App(props) {
   return (
     <div>
       <Navbar />
-      {/* <Showcase /> */}
-      {/* <Products /> */}
+      <Showcase />
+      <Products />
       <Cart />
     </div>
   );
