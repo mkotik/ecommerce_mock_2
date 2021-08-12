@@ -26,17 +26,17 @@ function CartItem(props) {
           <div className=" w-50 ">
             <img src={image} className="img-fluid" />
           </div>
-          <p className="ms-5">{name}</p>
+          <p className="ms-5 mb-0">{name}</p>
         </div>
       </div>
       <div className="col price d-flex align-items-center">
-        <p>{price}</p>
+        <p className="mb-0">{price}</p>
       </div>
       <div className="col quantity d-flex align-items-center">
         <QuantityBar quantity={quantity} />
       </div>
       <div className="col total d-flex align-items-center">
-        <p>{total}</p>
+        <p className="mb-0">{total}</p>
       </div>
     </div>
   );
