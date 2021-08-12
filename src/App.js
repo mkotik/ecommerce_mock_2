@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div>
-      <Navbar cartSize={cart.total_items} />
+      <Navbar cartSize={cart ? cart.total_items : 0} />
       <Showcase />
       <Products products={products} addToCart={addToCart} />
     </div>
