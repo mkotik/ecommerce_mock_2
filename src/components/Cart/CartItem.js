@@ -36,7 +36,7 @@ function CartItem(props) {
         <QuantityBar quantity={quantity} />
       </div>
       <div className="col total d-flex align-items-center">
-        <p className="mb-0">{total}</p>
+        <p className="mb-0 ">{total}</p>
       </div>
     </div>
   );
