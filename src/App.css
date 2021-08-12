@@ -1,3 +1,7 @@
+body {
+  padding-top: 56px;
+}
+
 .showcase-section {
   background-image: url("./assets/showcase-img.jpg");
   background-size: cover;
@@ -56,6 +60,38 @@
 
 .navbar-toggler {
   height: 40px;
+}
+
+.showcase-section {
+  transform: translateY(-56px);
+}
+
+.cart-item-row {
+  height: 9rem;
+}
+
+.cart-product-col {
+  height: 100%;
+}
+
+.quantityBar {
+  width: 10rem;
+  height: 3rem;
+}
+
+.quantity-minus {
+  width: 30%;
+  height: 100%;
+}
+
+.quantity-value {
+  width: 40%;
+  height: 100%;
+}
+
+.quantity-plus {
+  width: 30%;
+  height: 100%;
 }
 
 @media only screen and (max-width: 575px) {
