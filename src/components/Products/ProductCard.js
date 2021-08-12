@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import img1 from "../../assets/guitar1/guitar1_1.png";
-import img2 from "../../assets/guitar1/guitar1_2.png";
-import img3 from "../../assets/guitar1/guitar1_3.png";
-
+import { connect } from "react-redux";
+import { commerce } from "../../lib/commerce";
+import { addToCart } from "../../actions";
 import { ChevronDown as Down } from "react-bootstrap-icons";
 import { ChevronUp as Up } from "react-bootstrap-icons";
 import { ChevronLeft as Left } from "react-bootstrap-icons";
@@ -10,8 +9,6 @@ import { ChevronRight as Right } from "react-bootstrap-icons";
 
 const Carousel = (props) => {
   const { cardId, mainImg, otherImages } = props;
-  //   const mainImg = img1;
-  //   const otherImages = [img2, img3];
   return (
     <div
       id={`carousel-${cardId}`}
@@ -52,6 +49,11 @@ function ProductCard(props) {
   const [expanded, setExpanded] = useState(false);
   const { cardId, name, price, features, images, addToCart } = props;
 
+  const handleAddToCart = async () => {
+    const { cart } = await commerce.cart.add(cardId);
+    props.addToCart(cart);
+  };
+
   return (
     <div className="p-2 card-wrap">
       <div className="card shadow">
@@ -59,7 +61,6 @@ function ProductCard(props) {
           style={{ width: "100%" }}
           className="bg-white d-flex justify-content-center align-items-center "
         >
-          {/* <img src={img1} className="img-fluid" /> */}
           <Carousel
             cardId={cardId}
             mainImg={images[0]}
@@ -90,7 +91,7 @@ function ProductCard(props) {
             <button
               className="btn btn-success mt-2"
               style={{ bottom: "0px", right: "0px" }}
-              onClick={() => addToCart(cardId)}
+              onClick={handleAddToCart}
             >
               Add to Cart
             </button>
@@ -101,4 +102,4 @@ function ProductCard(props) {
   );
 }
 
-export default ProductCard;
+export default connect(null, { addToCart })(ProductCard);

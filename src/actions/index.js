@@ -4,26 +4,22 @@ export const CREATE_CART = "CREATE_CART";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
 
-export const getData = () => {
-  console.log("hello");
+export const getInitialData = () => {
   return async (dispatch) => {
     await commerce.products
       .list()
       .then((res) => {
         dispatch(fetchProducts(res.data));
-        dispatch(createCart(commerce.cart.retrieve()));
       })
       .catch((err) => {
-        console.log("bye");
         console.log(err);
       });
-  };
-};
-
-export const getCart = () => {
-  return async (dispatch) => {
-    const cart = await commerce.cart.retrieve();
-    dispatch(createCart(cart));
+    await commerce.cart
+      .retrieve()
+      .then((res) => {
+        dispatch(createCart(res));
+      })
+      .catch((err) => console.log(err));
   };
 };
 

@@ -1,43 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { commerce } from "./lib/commerce.js";
-import { Navbar, Showcase, Products } from "./components";
+import React, { useEffect } from "react";
+import { Navbar, Showcase, Products, Cart } from "./components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./App.css";
+import { getInitialData } from "./actions";
+import { connect } from "react-redux";
 
-function App() {
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState(null);
-
-  // Getting products from API
-  const fetchProducts = async () => {
-    const { data } = await commerce.products.list();
-    setProducts(data);
-  };
-
-  const createCart = async () => {
-    const data = await commerce.cart.retrieve();
-    setCart(data);
-  };
-
-  const addToCart = async (productId, quantity = 1) => {
-    const item = await commerce.cart.add(productId, quantity);
-    setCart(item.cart);
-    console.log(cart);
-  };
-
+function App(props) {
   useEffect(() => {
-    fetchProducts();
-    createCart();
+    props.getInitialData();
   }, []);
 
   return (
     <div>
-      <Navbar cartSize={cart ? cart.total_items : 0} />
-      <Showcase />
-      <Products products={products} addToCart={addToCart} />
+      <Navbar />
+      {/* <Showcase /> */}
+      {/* <Products /> */}
+      <Cart />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+export default connect(mapStateToProps, { getInitialData })(App);

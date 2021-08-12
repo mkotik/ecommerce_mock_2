@@ -3,7 +3,7 @@ import { CREATE_CART, ADD_TO_CART, FETCH_PRODUCTS } from "../actions";
 const initialState = {
   products: [],
   cart: {},
-  size: 0,
+  cartSize: 0,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -12,13 +12,13 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         cart: action.payload,
-        size: action.payload.total_items,
+        cartSize: action.payload.total_items,
       };
     case ADD_TO_CART:
       return {
         ...state,
         cart: action.payload,
-        size: action.payload.total_items,
+        cartSize: action.payload.total_items,
       };
     case FETCH_PRODUCTS:
       return {

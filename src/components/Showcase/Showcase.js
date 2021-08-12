@@ -1,5 +1,4 @@
 import React from "react";
-import showcaseImg from "../../assets/showcase-img.jpg";
 
 function Showcase(props) {
   return (
