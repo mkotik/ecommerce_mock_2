@@ -14,44 +14,13 @@ function Cart(props) {
   const handleCapture = () => {
     console.log(props.checkoutToken.id);
 
-    commerce.checkout.capture(props.checkoutToken.id, {
-      line_items: {
-        item_7RyWOwmK5nEa2V: {
-          quantity: 1,
-        },
-      },
-      customer: {
-        firstname: "John",
-        lastname: "Doe",
-        email: "mkotik97@gmail.com",
-      },
-      shipping: {
-        name: "John Doe",
-        street: "123 Fake St",
-        town_city: "San Francisco",
-        county_state: "US-CA",
-        postal_zip_code: "94103",
-        country: "US",
-      },
-      fulfillment: {
-        shipping_method: "ship_O3bR5X98Mlnzdj",
-      },
-      billing: {
-        name: "John Doe",
-        street: "234 Fake St",
-        town_city: "San Francisco",
-        county_state: "US-CA",
-        postal_zip_code: "94103",
-        country: "US",
-      },
-      payment: {
-        gateway: "stripe",
-        card: {
-          token: "irh98298g49",
-        },
-      },
-      pay_what_you_want: "149.99",
-    });
+    // const order = await commerce.checkout.capture(props.checkoutToken.id, {
+    //   payment: {
+    //     stripe: {
+    //       payment_method_id: stripePayment,
+    //     },
+    //   },
+    // });
   };
   return (
     <section className="section-cart p-sm-5 p-2">
@@ -89,18 +58,15 @@ function Cart(props) {
             className="cart-button-wrap d-flex flex-column justify-content-center align-items-center ms-lg-auto  mt-3 m-auto m-lg-0 mt-lg-3"
             style={{ width: "10.5rem" }}
           >
-            <button
-              className="btn btn-dark text-light px-5"
-              onClick={handleCheckout}
-            >
-              Checkout
-            </button>
-            <button
-              className="btn btn-dark text-light px-5"
-              onClick={handleCapture}
-            >
-              Capture
-            </button>
+            <Link to="/checkout">
+              <button
+                className="btn btn-dark text-light px-5"
+                onClick={handleCheckout}
+              >
+                Checkout
+              </button>
+            </Link>
+
             <Link to="/" className="text-decoration-none text-dark mt-2">
               Continue Shopping
             </Link>
