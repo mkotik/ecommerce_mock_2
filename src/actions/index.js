@@ -3,6 +3,7 @@ import { commerce } from "../lib/commerce.js";
 export const CREATE_CART = "CREATE_CART";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
+export const UPDATE_ITEM_QTY = "UPDATE_ITEM_QTY";
 
 export const getInitialData = () => {
   return async (dispatch) => {
@@ -20,6 +21,19 @@ export const getInitialData = () => {
         dispatch(createCart(res));
       })
       .catch((err) => console.log(err));
+  };
+};
+
+export const updateItemQuantity = (id, quantity) => {
+  return async (dispatch) => {
+    await commerce.cart
+      .update(id, { quantity: quantity })
+      .then((res) => {
+        dispatch({ type: UPDATE_ITEM_QTY, payload: res.cart });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 };
 

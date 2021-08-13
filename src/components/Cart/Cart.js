@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 
 function Cart(props) {
+  console.log(props);
   useEffect(() => {
     console.log(props);
   }, [props]);
@@ -29,6 +30,7 @@ function Cart(props) {
                   quantity={item.quantity}
                   total={item.line_total.formatted_with_symbol}
                   key={i}
+                  id={item.id}
                 />
               );
             })}
