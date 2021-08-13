@@ -6,8 +6,8 @@ import { connect } from "react-redux";
 function Products(props) {
   return (
     <div>
-      <div className="products-padding" id="products"></div>
-      <section className="py-5  products">
+      <div className="products-padding " id="products"></div>
+      <section className="py-sm-5  products">
         <div className="container ">
           <div className="d-flex flex-wrap">
             {props.products.map((product) => (

@@ -5,7 +5,7 @@ body {
 .showcase-section {
   background-image: url("./assets/showcase-img.jpg");
   background-size: cover;
-  height: 100vh;
+  height: 60rem;
 }
 
 .card-wrap {
@@ -114,6 +114,14 @@ body {
 
   .cart-content-col {
     max-height: 8rem;
+  }
+
+  .showcase-section {
+    height: 23.5rem;
+  }
+
+  .products-padding {
+    display: none;
   }
 }
 
