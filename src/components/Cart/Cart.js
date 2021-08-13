@@ -8,9 +8,50 @@ import { createCheckoutToken } from "../../actions";
 
 function Cart(props) {
   const handleCheckout = () => {
-    console.log("hi");
-    console.log(props.cart.id);
     props.createCheckoutToken(props.cart.id);
+  };
+
+  const handleCapture = () => {
+    console.log(props.checkoutToken.id);
+
+    commerce.checkout.capture(props.checkoutToken.id, {
+      line_items: {
+        item_7RyWOwmK5nEa2V: {
+          quantity: 1,
+        },
+      },
+      customer: {
+        firstname: "John",
+        lastname: "Doe",
+        email: "mkotik97@gmail.com",
+      },
+      shipping: {
+        name: "John Doe",
+        street: "123 Fake St",
+        town_city: "San Francisco",
+        county_state: "US-CA",
+        postal_zip_code: "94103",
+        country: "US",
+      },
+      fulfillment: {
+        shipping_method: "ship_O3bR5X98Mlnzdj",
+      },
+      billing: {
+        name: "John Doe",
+        street: "234 Fake St",
+        town_city: "San Francisco",
+        county_state: "US-CA",
+        postal_zip_code: "94103",
+        country: "US",
+      },
+      payment: {
+        gateway: "stripe",
+        card: {
+          token: "irh98298g49",
+        },
+      },
+      pay_what_you_want: "149.99",
+    });
   };
   return (
     <section className="section-cart p-sm-5 p-2">
@@ -54,6 +95,12 @@ function Cart(props) {
             >
               Checkout
             </button>
+            <button
+              className="btn btn-dark text-light px-5"
+              onClick={handleCapture}
+            >
+              Capture
+            </button>
             <Link to="/" className="text-decoration-none text-dark mt-2">
               Continue Shopping
             </Link>
@@ -67,6 +114,7 @@ function Cart(props) {
 const mapStateToProps = (state) => {
   return {
     cart: state.cart,
+    checkoutToken: state.checkoutToken,
   };
 };
 
