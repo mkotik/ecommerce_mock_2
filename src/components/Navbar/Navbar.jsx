@@ -1,6 +1,7 @@
 import React from "react";
 import { CartCheck as Cart } from "react-bootstrap-icons";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 function BadgeLg(props) {
   const { cartSize } = props;
@@ -24,9 +25,11 @@ function Navbar(props) {
   return (
     <nav className="navbar bg-dark navbar-dark navbar-expand-sm fixed-top">
       <div className="container">
-        <a href="#" className="navbar-brand">
-          Redwood Guitars
-        </a>
+        <Link to="/" className="text-decoration-none">
+          <a href="#" className="navbar-brand">
+            Redwood Guitars
+          </a>
+        </Link>
 
         <button
           className="navbar-toggler border-0 "
@@ -46,10 +49,12 @@ function Navbar(props) {
               <a className="nav-link">About Us</a>
             </li>
             <li className="nav-item cart-nav-item">
-              <a className="nav-link d-flex align-items-center">
-                Cart
-                <Cart color="#198754" className="ms-1 mb-0 " />
-              </a>
+              <Link to="/cart" className="text-decoration-none">
+                <a className="nav-link d-flex align-items-center ">
+                  Cart
+                  <Cart color="#198754" className="ms-1 mb-0 " />
+                </a>
+              </Link>
               <BadgeLg cartSize={props.cartSize} />
             </li>
           </ul>

@@ -5,6 +5,7 @@ import "bootstrap/dist/js/bootstrap.js";
 import "./App.css";
 import { getInitialData } from "./actions";
 import { connect } from "react-redux";
+import { Route, Switch } from "react-router-dom";
 
 function App(props) {
   useEffect(() => {
@@ -14,9 +15,17 @@ function App(props) {
   return (
     <div>
       <Navbar />
-      {/* <Showcase /> */}
-      {/* <Products /> */}
-      <Cart />
+
+      <Switch>
+        <Route exact path="/">
+          <Showcase />
+
+          <Products />
+        </Route>
+        <Route exact path="/cart">
+          <Cart />
+        </Route>
+      </Switch>
     </div>
   );
 }
