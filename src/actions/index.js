@@ -4,6 +4,7 @@ export const CREATE_CART = "CREATE_CART";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
 export const UPDATE_ITEM_QTY = "UPDATE_ITEM_QTY";
+export const REMOVE_ITEM = "REMOVE_ITEM";
 
 export const getInitialData = () => {
   return async (dispatch) => {
@@ -34,6 +35,17 @@ export const updateItemQuantity = (id, quantity) => {
       .catch((err) => {
         console.log(err);
       });
+  };
+};
+
+export const removeItem = (id) => {
+  return async (dispatch) => {
+    await commerce.cart
+      .remove(id)
+      .then((res) => {
+        dispatch({ type: REMOVE_ITEM, payload: res.cart });
+      })
+      .catch((err) => console.log(err));
   };
 };
 

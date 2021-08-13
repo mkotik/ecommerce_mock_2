@@ -1,25 +1,15 @@
 import React from "react";
 import QuantityBar from "./QuantityBar";
-
-// function QuantityBar(props) {
-//   const { quantity } = props;
-//   return (
-//     <div className="quantityBar d-flex ">
-//       <div className="quantity-minus bg-secondary d-flex align-items-center justify-content-center">
-//         <p className="m-0 text-light">-</p>
-//       </div>
-//       <div className="quantity-value d-flex align-items-center justify-content-center border border-secondary">
-//         <p className="m-0">{quantity}</p>
-//       </div>
-//       <div className="quantity-plus bg-secondary d-flex justify-content-center align-items-center">
-//         <p className="m-0 text-light">+</p>
-//       </div>
-//     </div>
-//   );
-// }
+import { XCircle } from "react-bootstrap-icons";
+import { connect } from "react-redux";
+import { removeItem } from "../../actions";
 
 function CartItem(props) {
   const { image, name, price, quantity, total, id } = props;
+
+  const handleRemove = () => {
+    props.removeItem(id);
+  };
   return (
     <div className="row border-top  py-2 cart-item-row cart-guitar-row">
       <div className=" col-sm-5 product cart-guitar-col ">
@@ -30,7 +20,12 @@ function CartItem(props) {
           <p className="ms-5 mb-0 d-none d-lg-block">{name}</p>
         </div>
       </div>
+
       <div className="col-sm price d-flex align-items-lg-center align-items-center align-items-sm-start justify-content-center justify-content-sm-start flex-column flex-lg-row py-2 py-sm-0 ps-sm-5 ps-lg-3">
+        <XCircle
+          className="xcircle align-self-sm-end me-sm-5 d-lg-none remove-item-icon"
+          onClick={handleRemove}
+        />
         <p className="ms-lg-5 mb-0 d-lg-none lead">{name}</p>
         <p className="mb-0 ">{price}</p>
         <div className="d-lg-none ">
@@ -42,9 +37,10 @@ function CartItem(props) {
       </div>
       <div className="col total d-lg-flex align-items-center d-none  ">
         <p className="mb-0 ">{total}</p>
+        <XCircle className="xcircle " onClick={handleRemove} />
       </div>
     </div>
   );
 }
 
-export default CartItem;
+export default connect(null, { removeItem })(CartItem);
