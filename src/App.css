@@ -94,9 +94,26 @@ body {
   height: 100%;
 }
 
+.cartItem-img-wrap {
+  width: 50%;
+}
+
 @media only screen and (max-width: 575px) {
   .badge-container-lg {
     transform: translate(-2px, -8px);
+  }
+
+  .cart-guitar-row {
+    height: 100%;
+  }
+
+  .cart-guitar-col {
+    /* max-height: 12rem; */
+    min-height: 8rem;
+  }
+
+  .cart-content-col {
+    max-height: 8rem;
   }
 }
 
@@ -106,5 +123,17 @@ body {
 @media only screen and (max-width: 850px) {
   .card-wrap {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .cartItem-img-wrap {
+    width: 100%;
+  }
+
+  .quantityBar {
+    width: 8rem;
+    height: 2.5rem;
+    margin-top: 1rem;
   }
 }

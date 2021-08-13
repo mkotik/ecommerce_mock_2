@@ -8,7 +8,7 @@ function Products(props) {
     <div>
       <div className="products-padding" id="products"></div>
       <section className="py-5  products">
-        <div className="container bagg">
+        <div className="container ">
           <div className="d-flex flex-wrap">
             {props.products.map((product) => (
               <ProductCard

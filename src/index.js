@@ -6,12 +6,15 @@ import { createStore, applyMiddleware } from "redux";
 import reducer from "./reducers";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
