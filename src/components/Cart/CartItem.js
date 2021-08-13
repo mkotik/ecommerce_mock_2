@@ -30,7 +30,7 @@ function CartItem(props) {
           <p className="ms-5 mb-0 d-none d-lg-block">{name}</p>
         </div>
       </div>
-      <div className="col-sm price d-flex align-items-lg-center align-items-center align-items-sm-start justify-content-center justify-content-sm-start flex-column flex-lg-row py-2 py-sm-0 ps-5 ps-lg-3">
+      <div className="col-sm price d-flex align-items-lg-center align-items-center align-items-sm-start justify-content-center justify-content-sm-start flex-column flex-lg-row py-2 py-sm-0 ps-sm-5 ps-lg-3">
         <p className="ms-lg-5 mb-0 d-lg-none lead">{name}</p>
         <p className="mb-0 ">{price}</p>
         <div className="d-lg-none ">
