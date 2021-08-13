@@ -11,11 +11,6 @@ import { Route, Switch } from "react-router-dom";
 function App(props) {
   useEffect(() => {
     props.getInitialData();
-
-    commerce.cart
-      .remove("item_7RyWOwmK5nEa2V")
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
   }, []);
 
   return (

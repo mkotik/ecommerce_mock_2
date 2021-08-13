@@ -3,12 +3,15 @@ import CartItem from "./CartItem";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "../../App.css";
+import { commerce } from "../../lib/commerce.js";
+import { createCheckoutToken } from "../../actions";
 
 function Cart(props) {
-  console.log(props);
-  useEffect(() => {
-    console.log(props);
-  }, [props]);
+  const handleCheckout = () => {
+    console.log("hi");
+    console.log(props.cart.id);
+    props.createCheckoutToken(props.cart.id);
+  };
   return (
     <section className="section-cart p-sm-5 p-2">
       {props.cart.line_items && (
@@ -45,7 +48,12 @@ function Cart(props) {
             className="cart-button-wrap d-flex flex-column justify-content-center align-items-center ms-lg-auto  mt-3 m-auto m-lg-0 mt-lg-3"
             style={{ width: "10.5rem" }}
           >
-            <button className="btn btn-dark text-light px-5">Checkout</button>
+            <button
+              className="btn btn-dark text-light px-5"
+              onClick={handleCheckout}
+            >
+              Checkout
+            </button>
             <Link to="/" className="text-decoration-none text-dark mt-2">
               Continue Shopping
             </Link>
@@ -62,4 +70,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, { createCheckoutToken })(Cart);

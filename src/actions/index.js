@@ -5,6 +5,7 @@ export const ADD_TO_CART = "ADD_TO_CART";
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
 export const UPDATE_ITEM_QTY = "UPDATE_ITEM_QTY";
 export const REMOVE_ITEM = "REMOVE_ITEM";
+export const CREATE_CHECKOUT_TOKEN = "CREATE_CHECKOUT_TOKEN";
 
 export const getInitialData = () => {
   return async (dispatch) => {
@@ -45,6 +46,15 @@ export const removeItem = (id) => {
       .then((res) => {
         dispatch({ type: REMOVE_ITEM, payload: res.cart });
       })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const createCheckoutToken = (id) => {
+  return async (dispatch) => {
+    await commerce.checkout
+      .generateTokenFrom("cart", id)
+      .then((res) => dispatch({ type: CREATE_CHECKOUT_TOKEN, payload: res }))
       .catch((err) => console.log(err));
   };
 };

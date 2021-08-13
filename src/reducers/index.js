@@ -4,11 +4,13 @@ import {
   FETCH_PRODUCTS,
   UPDATE_ITEM_QTY,
   REMOVE_ITEM,
+  CREATE_CHECKOUT_TOKEN,
 } from "../actions";
 
 const initialState = {
   products: [],
   cart: {},
+  checkoutToken: {},
   cartSize: 0,
 };
 
@@ -42,6 +44,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         cart: action.payload,
         cartSize: action.payload.total_items,
+      };
+    case CREATE_CHECKOUT_TOKEN:
+      return {
+        ...state,
+        checkoutToken: action.payload,
       };
 
     default:
