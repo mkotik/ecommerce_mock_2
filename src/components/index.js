@@ -4,3 +4,5 @@ export { default as Products } from "./Products/Products";
 export { default as Cart } from "./Cart/Cart";
 export { default as PaymentForm } from "./PaymentForm/PaymentForm";
 export { default as AddressForm } from "./AddressForm/AddressForm";
+export { default as Confirmation } from "./Confirmation/Confirmation";
+export { default as Failure } from "./Failure/Failure";

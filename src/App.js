@@ -6,6 +6,8 @@ import {
   Cart,
   PaymentForm,
   AddressForm,
+  Confirmation,
+  Failure,
 } from "./components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
@@ -46,6 +48,12 @@ function App(props) {
         </Route>
         <Route exact path="/shipping">
           <AddressForm />
+        </Route>
+        <Route exact path="/confirmation">
+          <Confirmation />
+        </Route>
+        <Route exact path="/failure">
+          <Failure />
         </Route>
       </Switch>
     </div>
