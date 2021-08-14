@@ -7,7 +7,14 @@ const AddressForm = () => {
       <div className="container">
         <form className="address-form p-5 bg-light ">
           <div className="mb-2">
-            <h3>Contact Information</h3>
+            <div className="d-flex align-items-end justify-content-between mb-2">
+              <h3 className="m-0">Contact Information</h3>
+              <Link to="/cart" className="d-block d-sm-none">
+                <button className="btn btn-danger nudge-up ">
+                  Return to cart
+                </button>
+              </Link>
+            </div>
             <input
               type="email"
               placeholder="Email"
@@ -16,7 +23,7 @@ const AddressForm = () => {
           </div>
           <div>
             <h3>Shipping Address</h3>
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between flex-column flex-sm-row">
               <input
                 type="text"
                 name="firstName"
@@ -42,7 +49,7 @@ const AddressForm = () => {
               placeholder="City / Town"
               className="border-1 border-secondary w-full"
             />
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between flex-column flex-sm-row">
               <select
                 name="country"
                 className="border-1 w-third border-secondary "
@@ -72,12 +79,14 @@ const AddressForm = () => {
               placeholder="Phone"
               className="border-1 w-full border-secondary "
             />
-            <div className="d-flex justify-content-between ">
-              <Link to="/cart">
-                <button className="btn btn-danger">Return to cart</button>
+            <div className="d-flex align-items-center justify-content-between flex-column flex-sm-row">
+              <Link to="/cart" className="d-none d-sm-block">
+                <button className="btn btn-danger my-1">Return to cart</button>
               </Link>
               <Link to="/payment">
-                <button className="btn btn-primary">Continue to Payment</button>
+                <button className="btn btn-primary my-1">
+                  Continue to Payment
+                </button>
               </Link>
             </div>
           </div>

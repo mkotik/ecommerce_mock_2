@@ -146,6 +146,10 @@ body {
   width: 26.67%;
 }
 
+.nudge-up {
+  transform: translateY(-2px);
+}
+
 @media only screen and (max-width: 575px) {
   .badge-container-lg {
     transform: translate(-2px, -8px);
@@ -170,6 +174,14 @@ body {
 
   .products-padding {
     display: none;
+  }
+
+  .w-half {
+    width: 100%;
+  }
+
+  .w-third {
+    width: 100%;
   }
 }
 
