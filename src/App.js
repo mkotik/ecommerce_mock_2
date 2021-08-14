@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, Showcase, Products, Cart, PaymentForm } from "./components";
+import {
+  Navbar,
+  Showcase,
+  Products,
+  Cart,
+  PaymentForm,
+  AddressForm,
+} from "./components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./App.css";
@@ -32,10 +39,13 @@ function App(props) {
         <Route exact path="/cart">
           <Cart />
         </Route>
-        <Route exact path="/checkout">
+        <Route exact path="/payment">
           <Elements stripe={stripePromise}>
             <PaymentForm />
           </Elements>
+        </Route>
+        <Route exact path="/shipping">
+          <AddressForm />
         </Route>
       </Switch>
     </div>

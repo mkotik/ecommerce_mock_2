@@ -118,6 +118,34 @@ body {
   padding: 1rem;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
+
+.address-form {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 1rem;
+  width: 100%;
+}
+
+.address-form input,
+.address-form select {
+  border-radius: 3px;
+  /* height: 2rem; */
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  padding: 0.2rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-half {
+  width: 45%;
+}
+
+.w-third {
+  width: 26.67%;
+}
+
 @media only screen and (max-width: 575px) {
   .badge-container-lg {
     transform: translate(-2px, -8px);

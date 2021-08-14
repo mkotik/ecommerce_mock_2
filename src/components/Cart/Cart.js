@@ -58,7 +58,7 @@ function Cart(props) {
             className="cart-button-wrap d-flex flex-column justify-content-center align-items-center ms-lg-auto  mt-3 m-auto m-lg-0 mt-lg-3"
             style={{ width: "10.5rem" }}
           >
-            <Link to="/checkout">
+            <Link to="/shipping">
               <button
                 className="btn btn-dark text-light px-5"
                 onClick={handleCheckout}
